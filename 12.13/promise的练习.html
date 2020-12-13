@@ -1,0 +1,21 @@
+<script>
+    const isPregnant = true
+    let promise = new Promise((resolve, reject) => {
+        if (isPregnant) {
+            resolve("孩子的父亲");
+        } else {
+            reject("老公");
+        }
+    });
+
+    promise
+        .then(name => {
+            console.log("亲爱的你成为了" + name);
+        })
+        .catch(name => {
+            console.log("亲爱的你成为了" + name);
+        })
+        .finally(() => {
+            console.log("我们是一个幸福的家庭");
+        })
+</script>

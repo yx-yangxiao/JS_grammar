@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //第一种方法就是先排序然后看先后的元素是否相同
+    function one(nums) {
+        let c = nums.sort((a, b) => a - b);
+        console.log("c的结果是：" + c);
+        const n = nums.length;
+        for (let i = 0; i < n - 1; i++) {
+            if (nums[i] === nums[i + 1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+    let x = one([])
+    console.log(x);
+    //第二种方法运用es6的新特性set类数组的唯一性
+    function two(nums) {
+        let data = new Set(nums)
+        console.log("data的数据是" + Array.from(data));
+        for (let i = 0; i < nums.length; i++) {
+            if (data.has(nums[i])) {
+                return true
+            }
+        }
+        return false
+    }
+    //前面这个就练习下别的方法
+    function tri(nums) {
+        let set = new Set(nums)
+        for (const num of nums) {
+            if (set.has(num)) {
+                return true
+            }
+        }
+        return false
+    }
+    let v = one([1, 2, 3, 1])
+    console.log("第1种方法结果是" + v);
+</script>
+
+</html>
